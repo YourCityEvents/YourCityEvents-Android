@@ -1,12 +1,16 @@
 package com.sharaga.yourcityevents_android
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import com.sharaga.yourcityevents_android.service.ApiFactory
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +18,27 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        val cityService = ApiFactory.cityApi
+//        val identityService = ApiFactory.identityApi
+
+        GlobalScope.launch(Dispatchers.Default) {
+            val postRequest = cityService.getAllCities()
+
+            try {
+                val response = postRequest.await()
+                if (response.isSuccessful) {
+                    val posts = response.body()
+                    print(posts)
+                } else {
+                    Log.d("MainActivity ", response.errorBody().toString())
+                }
+
+            } catch (e: Exception) {
+
+            }
+        }
+
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
