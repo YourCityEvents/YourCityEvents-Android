@@ -55,6 +55,7 @@ dependencies {
     def okhttp3_version = '4.2.2'
     def kotlinCoroutineVersion = "1.0.1"
     def picassoVersion = "2.71828"
+    def secureStorageVersion = "1.2.2"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -87,6 +88,10 @@ dependencies {
     //Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutineVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutineVersion"
+
+    //secure storage
+    implementation "de.adorsys.android:securestoragelibrary:$secureStorageVersion"
+
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {

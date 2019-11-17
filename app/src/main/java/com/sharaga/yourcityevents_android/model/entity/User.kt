@@ -1,7 +1,5 @@
 package com.sharaga.yourcityevents_android.model.entity
 
-import com.sharaga.yourcityevents_android.model.entity.City
-
 data class User(
     val id: String,
     val firstName: String,

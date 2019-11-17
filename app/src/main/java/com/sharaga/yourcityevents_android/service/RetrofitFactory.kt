@@ -1,13 +1,18 @@
 package com.sharaga.yourcityevents_android.service
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.sharaga.yourcityevents_android.AppConstants
+import com.sharaga.yourcityevents_android.config.AppConstants
+import com.sharaga.yourcityevents_android.config.MainApplication
+import de.adorsys.android.securestoragelibrary.SecurePreferences
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitFactory{
+
+
 
     //Creating Auth Interceptor to add api_key query in front of all the requests.
     private val authInterceptor = Interceptor {chain->
@@ -16,25 +21,32 @@ object RetrofitFactory{
 //            .addQueryParameter("api_key", AppConstants.EVENTS_BASE_URL)
             .build()
 
+
         val newRequest = chain.request()
             .newBuilder()
-            .addHeader("Authorization","")
+            .addHeader("Authorization", SecurePreferences.getStringValue(MainApplication.applicationContext(), "token", "") ?: "")
             .url(newUrl)
             .build()
 
         chain.proceed(newRequest)
     }
 
+    private val loggingInterceptor =  HttpLoggingInterceptor().apply {
+        level = HttpLoggingInterceptor.Level.BODY
+    }
+
     //OkhttpClient for building http request url
-    private val tmdbClient = OkHttpClient().newBuilder()
+    private val client = OkHttpClient().newBuilder()
         .addInterceptor(authInterceptor)
+        .addInterceptor(loggingInterceptor)
         .build()
 
 
 
     fun retrofit() : Retrofit = Retrofit.Builder()
-        .client(tmdbClient)
+        .client(client)
         .baseUrl(AppConstants.EVENTS_BASE_URL)
+
         .addConverterFactory(MoshiConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()

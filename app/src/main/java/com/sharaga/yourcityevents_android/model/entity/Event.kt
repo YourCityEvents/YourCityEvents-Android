@@ -1,8 +1,6 @@
 package com.sharaga.yourcityevents_android.model.entity
 
-import com.sharaga.yourcityevents_android.model.entity.City
 import java.time.LocalDateTime
-
 
 data class Event(
     val id: String,
