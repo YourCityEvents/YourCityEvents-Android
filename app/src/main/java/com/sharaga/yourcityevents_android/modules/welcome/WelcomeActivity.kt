@@ -5,16 +5,12 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import com.sharaga.yourcityevents_android.R
-import com.sharaga.yourcityevents_android.base.ViewModelInjector
-import com.sharaga.yourcityevents_android.service.ApiFactory
-import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import okhttp3.internal.notify
+import kotlinx.android.synthetic.main.content_main.*
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -25,29 +21,16 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        viewModel = WelcomeVM()
-        val cityService = ApiFactory.cityApi
+        viewModel = ViewModelProviders.of(this).get(WelcomeVM::class.java)
 
-        GlobalScope.launch(Dispatchers.Default) {
-            val postRequest = cityService.getAllCities()
-
-            try {
-                val response = postRequest.await()
-                if (response.isSuccessful) {
-                    val posts = response.body()
-                    print(posts)
-                } else {
-                    Log.d("MainActivity ", response.errorBody().toString())
-                }
-
-            } catch (e: Exception) {
-
-            }
-        }
-
+        viewModel.getUsername().observe(this, Observer {emitter ->
+            textView.text = emitter
+        })
+        textView.text = "Yes"
 
         fab.setOnClickListener { view ->
             viewModel.clickSubject.onNext(1)
+
             //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                .setAction("Action", null).show()
         }
