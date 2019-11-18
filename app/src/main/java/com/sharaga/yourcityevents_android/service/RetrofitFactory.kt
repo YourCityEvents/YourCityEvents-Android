@@ -3,6 +3,7 @@ package com.sharaga.yourcityevents_android.service
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.sharaga.yourcityevents_android.config.AppConstants
 import com.sharaga.yourcityevents_android.config.MainApplication
+import com.sharaga.yourcityevents_android.security.AppUser
 import de.adorsys.android.securestoragelibrary.SecurePreferences
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -18,13 +19,12 @@ object RetrofitFactory{
     private val authInterceptor = Interceptor {chain->
         val newUrl = chain.request().url
             .newBuilder()
-//            .addQueryParameter("api_key", AppConstants.EVENTS_BASE_URL)
             .build()
 
 
         val newRequest = chain.request()
             .newBuilder()
-            .addHeader("Authorization", SecurePreferences.getStringValue(MainApplication.applicationContext(), "token", "") ?: "")
+            .addHeader("Authorization","bearer" + AppUser.current.token)
             .url(newUrl)
             .build()
 
@@ -46,7 +46,6 @@ object RetrofitFactory{
     fun retrofit() : Retrofit = Retrofit.Builder()
         .client(client)
         .baseUrl(AppConstants.EVENTS_BASE_URL)
-
         .addConverterFactory(MoshiConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()

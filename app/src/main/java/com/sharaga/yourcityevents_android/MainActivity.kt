@@ -6,6 +6,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import com.sharaga.yourcityevents_android.model.entity.City
+import com.sharaga.yourcityevents_android.model.entity.User
 import com.sharaga.yourcityevents_android.service.ApiFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
@@ -20,16 +22,40 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val cityService = ApiFactory.cityApi
-//        val identityService = ApiFactory.identityApi
+        val identityService = ApiFactory.identityApi
+        val eventService = ApiFactory.evenrApi
+        val userService = ApiFactory.userApi
 
         GlobalScope.launch(Dispatchers.Default) {
-            val postRequest = cityService.getAllCities()
+            val regRequest = identityService.register(User("","first name", "last name", "bio", "email@hi.girls", City(  "5dcfdf731822562bacb524c1",
+                 "string",
+                "string"), null, null, null, ""))
 
             try {
-                val response = postRequest.await()
+                val response = regRequest.await()
                 if (response.isSuccessful) {
-                    val posts = response.body()
-                    print(posts)
+                    val user = response.body()
+                    print(user)
+                } else {
+                    Log.d("MainActivity ", response.errorBody().toString())
+                }
+
+            } catch (e: Exception) {
+
+            }
+        }
+
+        GlobalScope.launch(Dispatchers.Default) {
+            val cityRequest = cityService.getAllCities()
+            val postRequest = identityService.register(User("","first name", "last name", "bio", "email@hi.girls", City(  "5dcfdf731822562bacb524c1",
+                "string",
+                "string"), null, null, null, ""))
+
+            try {
+                val response = cityRequest.await()
+                if (response.isSuccessful) {
+                    val user = response.body()
+                    print(user)
                 } else {
                     Log.d("MainActivity ", response.errorBody().toString())
                 }

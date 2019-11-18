@@ -11,7 +11,4 @@ interface CityApi {
 
     @GET(AppConstants.CITY_URL)
     fun getAllCities(): Deferred<Response<GenericWrapper<List<City>>>>
-
-//    @POST(AppConstants.CITY_URL)
-//    fun postCity(): Deferred<Response<GenericWrapper<City>>>
 }

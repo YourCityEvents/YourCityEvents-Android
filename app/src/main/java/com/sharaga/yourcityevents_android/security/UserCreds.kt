@@ -1,9 +1,9 @@
 package com.sharaga.yourcityevents_android.security
 
 data class UserCreds(
-    val login: String?,
-    val password: String?,
-    val token: String?
+    val login: String,
+    val password: String,
+    val token: String
 )
 
 
