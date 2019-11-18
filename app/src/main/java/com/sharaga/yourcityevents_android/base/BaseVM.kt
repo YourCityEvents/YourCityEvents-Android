@@ -1,6 +1,8 @@
 package com.sharaga.yourcityevents_android.base
 
 import androidx.lifecycle.ViewModel
+import com.sharaga.yourcityevents_android.modules.login.LoginVM
+import com.sharaga.yourcityevents_android.modules.signUp.SignUpVM
 import com.sharaga.yourcityevents_android.modules.welcome.WelcomeVM
 
 abstract class BaseViewModel: ViewModel(){
@@ -15,6 +17,8 @@ abstract class BaseViewModel: ViewModel(){
     private fun inject() {
         when (this) {
             is WelcomeVM -> injector.inject(this)
+            is SignUpVM -> injector.inject(this)
+            is LoginVM -> injector.inject(this)
         }
     }
 }
