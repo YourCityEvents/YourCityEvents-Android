@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android
+package com.sharaga.yourcityevents_android.modules.welcome
 
 import android.os.Bundle
 import android.util.Log
@@ -6,15 +6,21 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+<<<<<<< HEAD:app/src/main/java/com/sharaga/yourcityevents_android/MainActivity.kt
 import com.sharaga.yourcityevents_android.model.entity.City
 import com.sharaga.yourcityevents_android.model.entity.User
+import com.sharaga.yourcityevents_android.R
+>>>>>>> 83ff1ee75c42993dc7580c33d83aaa855a4ba3a7:app/src/main/java/com/sharaga/yourcityevents_android/modules/welcome/WelcomeActivity.kt
 import com.sharaga.yourcityevents_android.service.ApiFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class WelcomeActivity : AppCompatActivity() {
+
+    private lateinit var viewModel: WelcomeVM
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
