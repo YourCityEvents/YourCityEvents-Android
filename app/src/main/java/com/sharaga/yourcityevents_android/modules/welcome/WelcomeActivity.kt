@@ -7,24 +7,26 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.sharaga.yourcityevents_android.R
+import com.sharaga.yourcityevents_android.base.ViewModelInjector
 import com.sharaga.yourcityevents_android.service.ApiFactory
+import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import okhttp3.internal.notify
 
 class WelcomeActivity : AppCompatActivity() {
 
     private lateinit var viewModel: WelcomeVM
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        viewModel = WelcomeVM()
         val cityService = ApiFactory.cityApi
-//        val identityService = ApiFactory.identityApi
 
         GlobalScope.launch(Dispatchers.Default) {
             val postRequest = cityService.getAllCities()
@@ -45,8 +47,9 @@ class WelcomeActivity : AppCompatActivity() {
 
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            viewModel.clickSubject.onNext(1)
+            //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
         }
     }
 
