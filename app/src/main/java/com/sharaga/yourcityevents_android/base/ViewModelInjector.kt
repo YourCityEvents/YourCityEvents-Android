@@ -1,8 +1,8 @@
 package com.sharaga.yourcityevents_android.base
 
+import com.sharaga.yourcityevents_android.modules.login.LoginVM
+import com.sharaga.yourcityevents_android.modules.signUp.SignUpVM
 import com.sharaga.yourcityevents_android.modules.welcome.WelcomeVM
-import com.sharaga.yourcityevents_android.service.ApiFactory
-import com.sharaga.yourcityevents_android.service.api.CityApi
 import dagger.Component
 import javax.inject.Singleton
 
@@ -20,5 +20,7 @@ interface ViewModelInjector {
     }
 
     fun inject(welcomeViewModel: WelcomeVM)
+    fun inject(loginViewModel: LoginVM)
+    fun inject(signUpViewModel: SignUpVM)
 
 }

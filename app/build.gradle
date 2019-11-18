@@ -60,6 +60,7 @@ dependencies {
     def lifecycle_version = "2.1.0"
     def dagger2_version = '2.14.1'
     def room_version = '2.2.1'
+    def nav_version = "2.1.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -113,6 +114,11 @@ dependencies {
 
     kapt "com.google.dagger:dagger-compiler:$dagger2_version"
     compileOnly "org.glassfish:javax.annotation:3.1.1"
+
+
+    //for navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
 }
 
