@@ -45,7 +45,7 @@ class WelcomeVM: BaseViewModel() {
             getUsername()
             println(emitter)
             println("yolo")
-        }
+        }.dispose()
 
     }
 
