@@ -9,7 +9,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.google.android.material.snackbar.Snackbar
 import com.sharaga.yourcityevents_android.R
->>>>>>> 83ff1ee75c42993dc7580c33d83aaa855a4ba3a7:app/src/main/java/com/sharaga/yourcityevents_android/modules/welcome/WelcomeActivity.kt
 import com.sharaga.yourcityevents_android.service.ApiFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
