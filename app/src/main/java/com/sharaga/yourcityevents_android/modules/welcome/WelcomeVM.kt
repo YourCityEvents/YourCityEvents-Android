@@ -24,19 +24,20 @@ class WelcomeVM: BaseViewModel() {
     init {
 
         GlobalScope.launch(Dispatchers.Default) {
-            val postRequest = cityService.getAllCities()
+            val postRequest = cityService.getAllCitiesAsync()
 
             try {
                 val response = postRequest.await()
                 if (response.isSuccessful) {
                     val posts = response.body()
                     println(posts?.data)
+                    println(posts?.errors)
                 } else {
                     Log.d("MainActivity ", response.errorBody().toString())
                 }
 
             } catch (e: Exception) {
-
+                e.printStackTrace()
             }
         }
 

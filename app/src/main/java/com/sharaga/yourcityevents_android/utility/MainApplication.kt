@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android.config
+package com.sharaga.yourcityevents_android.utility
 
 import android.app.Application
 import android.content.Context

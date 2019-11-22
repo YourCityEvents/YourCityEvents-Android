@@ -26,6 +26,6 @@
     </activity>
     <activity
         android:id="@+id/signUpFragment"
-        android:name="com.sharaga.yourcityevents_android.modules.signUp.SignUpFragment"
+        android:name="com.sharaga.yourcityevents_android.modules.signup.SignUpFragment"
         android:label="SignUpFragment" />
 </navigation>

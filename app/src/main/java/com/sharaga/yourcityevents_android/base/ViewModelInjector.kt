@@ -1,7 +1,7 @@
 package com.sharaga.yourcityevents_android.base
 
 import com.sharaga.yourcityevents_android.modules.login.LoginVM
-import com.sharaga.yourcityevents_android.modules.signUp.SignUpVM
+import com.sharaga.yourcityevents_android.modules.signup.SignUpVM
 import com.sharaga.yourcityevents_android.modules.welcome.WelcomeVM
 import dagger.Component
 import javax.inject.Singleton

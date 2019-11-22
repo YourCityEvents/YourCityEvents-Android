@@ -8,3 +8,8 @@ data class City(
     val nameUa: String,
     val nameEn: String
 )
+
+@JsonClass(generateAdapter = true)
+data class CityResponse(
+    val cities: List<City>
+)

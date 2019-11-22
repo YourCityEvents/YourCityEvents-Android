@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android.modules.signUp
+package com.sharaga.yourcityevents_android.modules.signup
 
 import android.os.Bundle
 import android.os.PersistableBundle

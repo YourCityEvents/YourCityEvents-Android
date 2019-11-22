@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".config.MainApplication"
+        android:name=".utility.MainApplication"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".modules.welcome.WelcomeActivity"

@@ -1,6 +1,6 @@
 package com.sharaga.yourcityevents_android.security
 
-import com.sharaga.yourcityevents_android.config.MainApplication
+import com.sharaga.yourcityevents_android.utility.MainApplication
 import de.adorsys.android.securestoragelibrary.SecurePreferences
 
 object SecureStorage {
