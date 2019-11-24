@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.sharaga.yourcityevents_android.R
@@ -19,6 +21,13 @@ class LoginActivity : AppCompatActivity() {
         this.presenter = LoginPresenter(this)
 
         presenter.login("myLogn","test1")
+    }
+
+    fun showErrorAlert() {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Fill all the fields")
+        builder.setPositiveButton(android.R.string.yes) { _, _ -> }
+        builder.show()
     }
 
 }

@@ -18,9 +18,10 @@ class LoginPresenter: ILoginPresenter {
     }
 
     override fun login(email: String, password: String) {
-        emailValidator.validate(email)
-        passwordValidator.validate(password)
-        println(email)
-        println(password)
+        if (emailValidator.validate(email) && passwordValidator.validate(password)) {
+            //TO DO: login user
+        }else {
+            view.showErrorAlert()
+        }
     }
 }
