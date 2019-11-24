@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.sharaga.yourcityevents_android.R
-import com.sharaga.yourcityevents_android.modules.auth.login.LoginActivity
+import com.sharaga.yourcityevents_android.modules.auth.login.view.LoginActivity
 
 
 class WelcomeActivity : AppCompatActivity() {

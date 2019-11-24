@@ -6,6 +6,6 @@
     app:startDestination="@id/loginFragment1">
     <fragment
         android:id="@+id/loginFragment1"
-        android:name="com.sharaga.yourcityevents_android.modules.auth.login.LoginFragment1"
+        android:name="com.sharaga.yourcityevents_android.modules.auth.login.view.LoginFragment1"
         android:label="LoginFragment1" />
 </navigation>
