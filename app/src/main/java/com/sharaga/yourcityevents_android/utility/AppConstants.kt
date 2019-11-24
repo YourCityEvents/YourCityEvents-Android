@@ -1,6 +1,4 @@
-package com.sharaga.yourcityevents_android.config
-
-import com.sharaga.yourcityevents_android.BuildConfig
+package com.sharaga.yourcityevents_android.utility
 
 object AppConstants {
     const val EVENTS_BASE_URL = "https://yourcityevents.azurewebsites.net/api/"

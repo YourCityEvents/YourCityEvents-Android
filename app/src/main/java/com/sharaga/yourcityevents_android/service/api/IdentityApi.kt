@@ -1,6 +1,6 @@
 package com.sharaga.yourcityevents_android.service.api
 
-import com.sharaga.yourcityevents_android.config.AppConstants
+import com.sharaga.yourcityevents_android.utility.AppConstants
 import com.sharaga.yourcityevents_android.model.GenericWrapper
 import com.sharaga.yourcityevents_android.model.entity.User
 import kotlinx.coroutines.Deferred
