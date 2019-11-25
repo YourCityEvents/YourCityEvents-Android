@@ -22,14 +22,6 @@ class LoginActivity : AppCompatActivity() {
 
         presenter.login("myLogn","test1")
     }
-
-    fun showErrorAlert() {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage("Fill all the fields")
-        builder.setPositiveButton(android.R.string.yes) { _, _ -> }
-        builder.show()
-    }
-
 }
 
 
