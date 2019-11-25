@@ -8,15 +8,10 @@ interface ILoginPresenter {
     fun login(email: String, password: String)
 }
 
-class LoginPresenter: ILoginPresenter {
+class LoginPresenter(private var view: LoginActivity) : ILoginPresenter {
 
-    private var view: LoginActivity
     private val emailValidator = EmailValidator()
     private val passwordValidator = PasswordValidator()
-
-    constructor(view:LoginActivity) {
-        this.view = view
-    }
 
     override fun login(email: String, password: String) {
         if (emailValidator.validate(email) && passwordValidator.validate(password)) {

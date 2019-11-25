@@ -22,42 +22,92 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
+                android:textColor="@color/colorPrimary"
                 android:gravity="center"
-                android:layout_marginBottom="35dp"
+                android:layout_marginBottom="65dp"
                 android:textSize="36sp"/>
-            <EditText
-                android:id="@+id/email"
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                 android:layout_width="@dimen/sign_field_len"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
-                android:layout_gravity="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:labelText="@string/email"
+                >
 
-            <EditText
-                android:id="@+id/password"
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/email"
+                    android:layout_width="@dimen/sign_field_len"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+            <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                 android:layout_width="@dimen/sign_field_len"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/second_field_top_margin"
-                android:ems="10"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:layout_gravity="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/email" />
+                app:labelText="@string/password"
+                >
+
+                <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+                    android:id="@+id/password"
+                    android:layout_width="@dimen/sign_field_len"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    />
+
+            </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
             <TextView
                 android:id="@+id/link_signup"
-                android:layout_width="fill_parent"
+                android:layout_width="@dimen/sign_field_len"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
-                android:text="No account yet? Create one"
-                android:gravity="center"
-                android:textSize="16dip"/>
+                android:text="@string/forgot_password"
+                android:clickable="true"
+                android:gravity="end"
+                android:textSize="16sp"
+                android:focusable="true" />
+
+            <Button
+                android:id="@+id/sign_in"
+                android:layout_width="@dimen/sign_field_len"
+                android:background="@drawable/button_background"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite"
+                android:text="Button" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/dont_have_acc"
+                android:gravity="end"
+                android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/sign_up"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:gravity="end"
+                android:textSize="16sp"
+                android:focusable="true"
+                android:textColor="@color/colorPrimary"/>
+        </LinearLayout>
+
         </LinearLayout>
 
 

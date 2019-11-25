@@ -23,6 +23,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/parts'] } }
 }
 
 dependencies {
@@ -100,6 +101,8 @@ dependencies {
 
     //bolshe ebychih lib
     implementation 'com.github.kizitonwose:android-disposebag:0.1.0'
+
+    implementation 'com.github.HITGIF:TextFieldBoxes:1.4.3'
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
