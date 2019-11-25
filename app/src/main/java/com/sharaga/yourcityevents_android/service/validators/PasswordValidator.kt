@@ -8,5 +8,4 @@ class PasswordValidator: IValidator {
         return Pattern.compile("^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])[0-9A-Za-z!@#\$%?]{8,20}\$")
             .matcher(text).matches()
     }
-
 }
