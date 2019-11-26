@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.sharaga.yourcityevents_android.R
 import com.sharaga.yourcityevents_android.modules.auth.login.presenter.LoginPresenter
+import kotlinx.android.synthetic.main.login_fragment1.*
+import java.lang.ref.WeakReference
 
 class LoginActivity : AppCompatActivity() {
 
@@ -18,9 +20,15 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_fragment1)
-        this.presenter = LoginPresenter(this)
+        this.presenter = LoginPresenter(WeakReference(this))
 
-        presenter.login("myLogn","test1")
+        sign_in.setOnClickListener {
+           email
+        }
+
+        sign_up.setOnClickListener {
+
+        }
     }
 }
 

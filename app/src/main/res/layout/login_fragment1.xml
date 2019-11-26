@@ -29,6 +29,7 @@
             <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
                 android:layout_width="@dimen/sign_field_len"
                 android:layout_height="wrap_content"
+                app:enabled="true"
                 app:labelText="@string/email"
                 >
 
@@ -66,6 +67,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
                 android:text="@string/forgot_password"
+                android:textColor="@drawable/textview_clickable"
                 android:clickable="true"
                 android:gravity="end"
                 android:textSize="16sp"
@@ -74,11 +76,12 @@
             <Button
                 android:id="@+id/sign_in"
                 android:layout_width="@dimen/sign_field_len"
-                android:background="@drawable/button_background"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorWhite"
-                android:text="Button" />
-        <LinearLayout
+                android:background="@drawable/button_background"
+                android:text="Sign in"
+                android:textColor="@color/colorWhite" />
+
+            <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -94,6 +97,7 @@
                 android:gravity="end"
                 android:textSize="16sp" />
             <TextView
+                android:id="@+id/sign_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -105,7 +109,7 @@
                 android:gravity="end"
                 android:textSize="16sp"
                 android:focusable="true"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@drawable/textview_clickable" />
         </LinearLayout>
 
         </LinearLayout>
