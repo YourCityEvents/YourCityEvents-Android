@@ -15,24 +15,24 @@ class MainBarActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_bar_activity)
 
-        navigationView.setNavigationItemSelectedListener {
+        navigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.tab_feed -> {
                     loadFragment(FeedFragment())
-                    return@setNavigationItemSelectedListener true
+                    return@setOnNavigationItemSelectedListener true
                 }
 
                 R.id.tab_create -> {
                     loadFragment(CreateFragment())
-                    return@setNavigationItemSelectedListener true
+                    return@setOnNavigationItemSelectedListener true
                 }
 
                 R.id.tab_profile -> {
                     loadFragment(ProfileFragment())
-                    return@setNavigationItemSelectedListener true
+                    return@setOnNavigationItemSelectedListener true
                 }
             }
-            return@setNavigationItemSelectedListener true
+            return@setOnNavigationItemSelectedListener false
         }
     }
 
