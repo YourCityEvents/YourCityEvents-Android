@@ -8,7 +8,6 @@ import com.sharaga.yourcityevents_android.R
 import com.sharaga.yourcityevents_android.modules.create.CreateFragment
 import com.sharaga.yourcityevents_android.modules.feed.FeedFragment
 import com.sharaga.yourcityevents_android.modules.profile.ProfileFragment
-import kotlinx.android.synthetic.main.main_bar_activity.*
 
 class MainBarActivity: AppCompatActivity() {
 
