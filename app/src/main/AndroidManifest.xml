@@ -27,6 +27,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".modules.auth.login.view.LoginActivity"/>
+
+        <activity
+            android:name=".modules.mainbar.MainBarActivity"
+            android:label="">
+        </activity>
+
     </application>
 
 </manifest>

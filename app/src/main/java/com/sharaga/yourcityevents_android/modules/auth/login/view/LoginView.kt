@@ -1,15 +1,16 @@
 package com.sharaga.yourcityevents_android.modules.auth.login.view
 
+import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.sharaga.yourcityevents_android.R
 import com.sharaga.yourcityevents_android.modules.auth.login.presenter.LoginPresenter
+import com.sharaga.yourcityevents_android.modules.mainbar.MainBarActivity
 import kotlinx.android.synthetic.main.login_fragment1.*
 import java.lang.ref.WeakReference
 
@@ -23,7 +24,9 @@ class LoginActivity : AppCompatActivity() {
         this.presenter = LoginPresenter(WeakReference(this))
 
         sign_in.setOnClickListener {
-           email
+            val intent = Intent(this, MainBarActivity::class.java)
+//            val intent = Intent(this, MainBarActivity.class)
+            startActivity(intent)
         }
 
         sign_up.setOnClickListener {

@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android.modules
+package com.sharaga.yourcityevents_android.modules.feed
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import com.sharaga.yourcityevents_android.R
 
 class FeedFragment : Fragment(){
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_fav,container,false)
+        return inflater.inflate(R.layout.fragment_feed,container,false)
 
     }
 }
