@@ -44,19 +44,20 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.login_fragment1, container, false)
         this.presenter = LoginPresenter(WeakReference(this))
+        //var view; //inflater.inflate(R.layout.login_fragment1, container, false)
 
-        return view
+
+        return inflater.inflate(R.layout.login_fragment1, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+//        super.onViewCreated(view, savedInstanceState)
 
         sign_in.setOnClickListener {
-//            val intent = Intent(activity, MainBarActivity::class.java)
+            //            val intent = Intent(activity, MainBarActivity::class.java)
 //            startActivity(intent)
-            presenter.login("","")
+            presenter.login("", "")
         }
     }
 }
