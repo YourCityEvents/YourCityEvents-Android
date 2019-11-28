@@ -9,10 +9,10 @@ data class Event(
     val title: String,
     val location: City,
     val description: String,
-    val owner: String,
+    val owner: User,
     val date: LocalDateTime,
     val imageUrls: List<String>,
     val links: List<String>,
-    val visitors: List<String>,
+    val visitors: List<User>,
     val price: Long
 )

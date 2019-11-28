@@ -1,8 +1,9 @@
 package com.sharaga.yourcityevents_android.service.api
 
-import com.sharaga.yourcityevents_android.utility.AppConstants
 import com.sharaga.yourcityevents_android.model.GenericWrapper
 import com.sharaga.yourcityevents_android.model.entity.User
+import com.sharaga.yourcityevents_android.security.UserCreds
+import com.sharaga.yourcityevents_android.utility.AppConstants
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.Body
@@ -14,5 +15,5 @@ interface IdentityApi {
     fun register(@Body user: User): Deferred<Response<GenericWrapper<User>>>
 
     @POST(AppConstants.IDENTITY_URL + "login")
-    fun login(): Deferred<Response<GenericWrapper<User>>>
+    fun login(@Body userCreds: UserCreds): Deferred<Response<GenericWrapper<User>>>
 }

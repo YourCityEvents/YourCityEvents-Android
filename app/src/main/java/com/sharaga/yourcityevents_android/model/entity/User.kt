@@ -10,8 +10,8 @@ data class User(
     val bio: String,
     val email: String,
     val city: City,
-    val hostingEvents: List<String>?,
-    val visitingEvents: List<String>?,
+    val hostingEvents: List<Event>,
+    val visitingEvents: List<Event>,
     val imageUrl: String?,
     val token: String
 )

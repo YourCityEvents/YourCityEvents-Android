@@ -8,6 +8,7 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'androidx.navigation.safeargs'
 
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 29
@@ -31,12 +32,12 @@ dependencies {
     def retrofit2_version = '2.6.2'
     def okhttp3_version = '4.2.2'
     def kotlinCoroutineVersion = "1.0.1"
-    def picassoVersion = "2.71828"
     def secureStorageVersion = "1.2.2"
     def lifecycle_version = "2.1.0"
     def dagger2_version = '2.14.1'
     def room_version = '2.2.1'
     def nav_version = "2.1.0"
+    def huix_version = "1.4.8.8"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -65,11 +66,6 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 
-    //Picasso for Image Loading
-    implementation("com.squareup.picasso:picasso:$picassoVersion") {
-        exclude group: "com.android.support"
-    }
-
     //Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutineVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutineVersion"
@@ -81,8 +77,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
-    implementation "io.reactivex.rxjava2:rxjava:2.1.15"
-    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
     kapt "android.arch.persistence.room:compiler:$room_version"
 
 
@@ -90,7 +84,6 @@ dependencies {
 
     implementation "com.google.dagger:dagger:$dagger2_version"
     implementation "com.google.dagger:dagger-android-support:$dagger2_version"
-
     kapt "com.google.dagger:dagger-compiler:$dagger2_version"
     compileOnly "org.glassfish:javax.annotation:3.1.1"
 
@@ -99,11 +92,8 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    //bolshe ebychih lib
-    implementation 'com.github.kizitonwose:android-disposebag:0.1.0'
 
-    implementation 'com.github.HITGIF:TextFieldBoxes:1.4.3'
-
+    implementation group: 'com.licogi.trienchieu', name: 'store-huy', version: '1.0.0'
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
