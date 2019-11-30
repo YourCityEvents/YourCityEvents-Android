@@ -3,7 +3,6 @@ import com.sharaga.yourcityevents_android.extensions.showError
 import com.sharaga.yourcityevents_android.modules.auth.login.view.LoginFragment
 import com.sharaga.yourcityevents_android.repository.UserRepository
 import com.sharaga.yourcityevents_android.repository.realmdto.RealmUser
-import com.sharaga.yourcityevents_android.security.AppUser
 import com.sharaga.yourcityevents_android.service.ApiFactory
 import com.sharaga.yourcityevents_android.service.validators.EmailValidator
 import com.sharaga.yourcityevents_android.service.validators.PasswordValidator
@@ -17,6 +16,7 @@ interface ILoginPresenter {
 
 class LoginPresenter(private var view: WeakReference<LoginFragment>) : ILoginPresenter {
 
+
     private val emailValidator = EmailValidator()
     private val passwordValidator = PasswordValidator()
     private val identityApi = ApiFactory.identityApi
@@ -24,7 +24,10 @@ class LoginPresenter(private var view: WeakReference<LoginFragment>) : ILoginPre
 
     override fun login(email: String, password: String) {
         if (emailValidator.validate(email) && passwordValidator.validate(password)) {
-            identityApi.login(AppUser.current)
+
+
+
+            //identityApi.login(AppUser.current)
 
         } else {
             view.get()?.showError("invalid")

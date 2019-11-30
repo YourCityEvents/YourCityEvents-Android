@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android.modules.create
+package com.sharaga.yourcityevents_android.modules.mainbar.create
 
 import android.os.Bundle
 import android.view.LayoutInflater

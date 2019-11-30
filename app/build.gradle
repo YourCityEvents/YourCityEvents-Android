@@ -13,9 +13,6 @@ apply plugin: 'realm-android'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
-    dataBinding {
-        enabled = true
-    }
     defaultConfig {
         applicationId "com.sharaga.yourcityevents_android"
         minSdkVersion 24
