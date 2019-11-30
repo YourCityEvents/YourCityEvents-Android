@@ -1,11 +1,7 @@
 package com.sharaga.yourcityevents_android.repository
 
-import com.sharaga.yourcityevents_android.model.entity.User
+import com.sharaga.yourcityevents_android.repository.realmdto.RealmUser
+import io.realm.Realm
 
-class UserRepository : BaseRepository() {
-    fun saveUser(user: User) {
-        realm.beginTransaction()
-        realm.insert(user)
-        realm.commitTransaction()
-    }
-}
+class UserRepository(realm: Realm = Realm.getDefaultInstance(), ofType: Class<RealmUser> = RealmUser::class.java) :
+    BaseRepository<RealmUser>(realm, ofType)

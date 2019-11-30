@@ -50,6 +50,4 @@ object RetrofitFactory {
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
-
-
 }

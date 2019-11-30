@@ -54,6 +54,11 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
 
+
+        sign_up.setOnClickListener{
+            presenter.cumshot()
+        }
+
         sign_in.setOnClickListener {
             //            val intent = Intent(activity, MainBarActivity::class.java)
 //            startActivity(intent)

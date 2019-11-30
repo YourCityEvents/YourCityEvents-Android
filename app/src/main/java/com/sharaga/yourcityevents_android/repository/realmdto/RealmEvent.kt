@@ -3,18 +3,17 @@ package com.sharaga.yourcityevents_android.repository.realmdto
 import io.realm.RealmList
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
-import java.time.LocalDateTime
 
 open class RealmEvent(
     @PrimaryKey
-    val id: String,
-    val title: String,
-    val location: String,
-    val description: String,
-    val owner: RealmUser,
-    val date: LocalDateTime,
-    val imageUrls: List<String>,
-    val links: List<String>,
-    val visitors: RealmList<RealmUser>,
-    val price: Long
+    var id: String? = null,
+    var title: String? = null,
+    var location: String? = null,
+    var description: String? = null,
+    var owner: RealmUser? = null,
+    var date: String? = null,
+    var imageUrls: RealmList<String>? = null,
+    var links: RealmList<String>? = null,
+    var visitors: RealmList<RealmUser>? = null,
+    var price: Long? = null
 ) : RealmObject()
