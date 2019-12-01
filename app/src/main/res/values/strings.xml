@@ -8,4 +8,9 @@
     <string name="dont_have_acc">Don\'t have an account?</string>
     <string name="sign_in">Sign in</string>
     <string name="upcoming_events_in">Upcoming events in</string>
+    <string name="login">Login</string>
+    <string name="bio">Bio</string>
+    <string name="your_city">Your city</string>
+    <string name="already_have_acc">Already have an account?</string>
+    <string name="next">Next</string>
 </resources>
