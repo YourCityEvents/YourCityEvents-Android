@@ -6,15 +6,15 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sharaga.yourcityevents_android.R
 import com.sharaga.yourcityevents_android.modules.mainbar.create.CreateFragment
-import com.sharaga.yourcityevents_android.modules.mainbar.feed.FeedFragment
+import com.sharaga.yourcityevents_android.modules.mainbar.feed.view.FeedFragment
 import com.sharaga.yourcityevents_android.modules.mainbar.profile.ProfileFragment
-import kotlinx.android.synthetic.main.main_bar_activity.*
+import kotlinx.android.synthetic.main.activity_main_bar.*
 
 class MainBarActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_bar_activity)
+        setContentView(R.layout.activity_main_bar)
 //        val navView: BottomNavigationView = findViewById(R.id.navigationView)
 
         loadFragment(FeedFragment())

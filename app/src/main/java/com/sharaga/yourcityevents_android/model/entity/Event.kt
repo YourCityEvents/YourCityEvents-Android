@@ -1,7 +1,7 @@
 package com.sharaga.yourcityevents_android.model.entity
 
 import com.squareup.moshi.JsonClass
-import java.time.LocalDateTime
+import java.util.*
 
 @JsonClass(generateAdapter = true)
 data class Event(
@@ -10,7 +10,7 @@ data class Event(
     val location: City,
     val description: String,
     val owner: User,
-    val date: LocalDateTime,
+    val date: Date,
     val imageUrls: List<String>,
     val links: List<String>,
     val visitors: List<User>,
