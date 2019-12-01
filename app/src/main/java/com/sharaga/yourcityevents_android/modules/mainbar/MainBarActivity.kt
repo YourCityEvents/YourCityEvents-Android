@@ -7,7 +7,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sharaga.yourcityevents_android.R
 import com.sharaga.yourcityevents_android.modules.mainbar.create.CreateFragment
 import com.sharaga.yourcityevents_android.modules.mainbar.feed.FeedFragment
-import com.sharaga.yourcityevents_android.modules.profile.ProfileFragment
+import com.sharaga.yourcityevents_android.modules.mainbar.profile.ProfileFragment
 import kotlinx.android.synthetic.main.main_bar_activity.*
 
 class MainBarActivity: AppCompatActivity() {

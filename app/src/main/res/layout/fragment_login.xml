@@ -10,12 +10,11 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".modules.auth.login.view.LoginActivity"
-        tools:showIn="@layout/empty_activity">
+        tools:showIn="@layout/activity_empty">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:layout_marginTop="@dimen/first_field_top_margin"
             android:gravity="center"
             android:orientation="vertical">

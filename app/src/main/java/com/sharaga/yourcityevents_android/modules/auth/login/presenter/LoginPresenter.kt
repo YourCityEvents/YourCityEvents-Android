@@ -25,8 +25,6 @@ class LoginPresenter(private var view: WeakReference<LoginFragment>) : ILoginPre
     override fun login(email: String, password: String) {
         if (emailValidator.validate(email) && passwordValidator.validate(password)) {
 
-
-
             //identityApi.login(AppUser.current)
 
         } else {

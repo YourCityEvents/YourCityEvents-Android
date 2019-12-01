@@ -15,7 +15,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.sharaga.yourcityevents_android"
-        minSdkVersion 24
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -25,19 +25,21 @@ android {
 }
 
 dependencies {
-    def moshiVersion = '1.9.1'
-    def retrofit2_version = '2.6.2'
-    def okhttp3_version = '4.2.2'
-    def kotlinCoroutineVersion = "1.0.1"
-    def secureStorageVersion = "1.2.2"
+    def moshi_version = "1.9.1"
+    def retrofit2_version = "2.6.2"
+    def okhttp3_version = "4.2.2"
+    def kotlin_coroutine_version = "1.0.1"
+    def secure_storage_version = "1.2.2"
     def lifecycle_version = "2.1.0"
-    def dagger2_version = '2.14.1'
-    def room_version = '2.2.1'
+    def dagger2_version = "2.14.1"
+    def room_version = "2.2.1"
     def nav_version = "2.1.0"
     def huix_version = "1.4.8.8"
+    def recyclerview_version = "1.1.0"
+    def recyclerview_selection_version = "1.0.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -50,8 +52,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     //Moshi
-    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
 
     //Retrofit2
     implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
@@ -64,11 +66,11 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 
     //Kotlin Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutineVersion"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutine_version"
 
     //secure storage
-    implementation "de.adorsys.android:securestoragelibrary:$secureStorageVersion"
+    implementation "de.adorsys.android:securestoragelibrary:$secure_storage_version"
 
     //to satisfy my demands
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
@@ -76,9 +78,7 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     kapt "android.arch.persistence.room:compiler:$room_version"
 
-
     //for my demands too
-
     implementation "com.google.dagger:dagger:$dagger2_version"
     implementation "com.google.dagger:dagger-android-support:$dagger2_version"
     kapt "com.google.dagger:dagger-compiler:$dagger2_version"
@@ -89,8 +89,10 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-
     implementation group: 'com.licogi.trienchieu', name: 'store-huy', version: '1.0.0'
+
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    implementation "androidx.recyclerview:recyclerview-selection:$recyclerview_selection_version"
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
