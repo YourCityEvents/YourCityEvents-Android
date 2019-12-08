@@ -12,19 +12,21 @@ object AppUser {
 
     private fun getCurrentUserCreds(): UserCreds {
         return UserCreds(
-            SecureStorage.getVal("login"),
-            SecureStorage.getVal("password"),
-            SecureStorage.getVal("token")
+            SecretStorage.getVal("login"),
+            SecretStorage.getVal("password"),
+            SecretStorage.getVal("token")
         )
     }
 
     fun signOut() {
-        SecureStorage.clear()
+        SecretStorage.removeVal("login")
+        SecretStorage.removeVal("password")
+        SecretStorage.removeVal("token")
     }
 
     fun setCurrentUserCreds(login: String, password: String, token: String) {
-        SecureStorage.setVal("login", login)
-        SecureStorage.setVal("password", password)
-        SecureStorage.setVal("token", token)
+        SecretStorage.setVal("login", login)
+        SecretStorage.setVal("password", password)
+        SecretStorage.setVal("token", token)
     }
 }

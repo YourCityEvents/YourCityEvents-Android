@@ -5,17 +5,14 @@ import com.sharaga.yourcityevents_android.network.ApiFactory
 import com.sharaga.yourcityevents_android.network.validators.EmailValidator
 import com.sharaga.yourcityevents_android.network.validators.PasswordValidator
 import com.sharaga.yourcityevents_android.repository.EventRepository
-import com.sharaga.yourcityevents_android.repository.realmdto.RealmCity
 import com.sharaga.yourcityevents_android.repository.realmdto.RealmEvent
-import com.sharaga.yourcityevents_android.repository.realmdto.RealmUser
+import com.sharaga.yourcityevents_android.security.AppUser
 import io.realm.Realm
-import io.realm.RealmList
 import io.realm.RealmResults
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.ref.WeakReference
-import java.util.*
 
 
 class FeedPresenter(private var view: WeakReference<FeedFragment>) {
@@ -36,6 +33,9 @@ class FeedPresenter(private var view: WeakReference<FeedFragment>) {
 
         eventRep.deleteAll()
 
+        AppUser.setCurrentUserCreds("yarykloh2@example.com", "string", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ5YXJ5a2xvaDJAZXhhbXBsZS5jb20iLCJqdGkiOiI1MmU2YWRmMC0zOWNiLTRhYTUtYmQwYi1iOWMyMGE2MTcyNjMiLCJlbWFpbCI6InlhcnlrbG9oMkBleGFtcGxlLmNvbSIsIm5iZiI6MTU3NTgzMjQ5OCwiZXhwIjoxNTc1ODM5Njk4LCJpYXQiOjE1NzU4MzI0OTh9.N3JTxH_yMdCnbp-xjZ_-EUUXtg95fqWYSryzF0YYo8Q")
+
+        //todo serialize ebuchuju datu
         GlobalScope.launch(Dispatchers.Default) {
             val request = eventService.getAllEventsAsync()
 
@@ -44,15 +44,18 @@ class FeedPresenter(private var view: WeakReference<FeedFragment>) {
                 if (response.isSuccessful) {
                     val events = response.body()?.data?.events
 
-                    eventRep.saveAll(events)
-                    updateEventsCallback(response.body())
+
+                    eventRep.saveAll(events!!.map { RealmEvent(it) })
+                    updateEventsCallback(eventRep.getAll())
                 } else {
+                    println("proeb")
                     //todo add popup exception
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
+        println("sraka")
 
 //        eventRep.save(
 //            RealmEvent(

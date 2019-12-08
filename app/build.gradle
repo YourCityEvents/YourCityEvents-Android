@@ -29,7 +29,7 @@ dependencies {
     def retrofit2_version = "2.6.2"
     def okhttp3_version = "4.2.2"
     def kotlin_coroutine_version = "1.0.1"
-    def secure_storage_version = "1.2.2"
+    def secure_storage_version = "0.1.4"
     def lifecycle_version = "2.1.0"
     def dagger2_version = "2.14.1"
     def room_version = "2.2.1"
@@ -70,7 +70,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutine_version"
 
     //secure storage
-    implementation "de.adorsys.android:securestoragelibrary:$secure_storage_version"
+    implementation "com.jcloquell:androidsecurestorage:$secure_storage_version"
+    implementation 'com.google.code.gson:gson:2.8.6'
 
     //to satisfy my demands
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
@@ -93,6 +94,9 @@ dependencies {
 
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation "androidx.recyclerview:recyclerview-selection:$recyclerview_selection_version"
+
+
+
 }
 
 tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
