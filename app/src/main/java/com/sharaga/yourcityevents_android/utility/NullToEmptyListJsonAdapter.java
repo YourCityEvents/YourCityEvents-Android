@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 public final class NullToEmptyListJsonAdapter extends JsonAdapter<List<?>> {
+
     public static final Factory FACTORY = new Factory() {
         @Nullable
         @Override

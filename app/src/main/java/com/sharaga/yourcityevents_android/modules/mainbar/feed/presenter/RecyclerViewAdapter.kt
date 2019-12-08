@@ -8,16 +8,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sharaga.yourcityevents_android.R
-import com.sharaga.yourcityevents_android.model.entity.Event
+import com.sharaga.yourcityevents_android.repository.realmdto.RealmEvent
+import io.realm.RealmResults
 import java.text.SimpleDateFormat
 
 
 class RecycleViewAdapter(private val context: Context?) :
     RecyclerView.Adapter<RecycleViewAdapter.ViewHolder>() {
 
-    private val eventList = ArrayList<Event>()
+    private val eventList = ArrayList<RealmEvent>()
 
-    fun setEventList(list: List<Event>) {
+    fun setEventList(list: RealmResults<RealmEvent>) {
         eventList.clear()
         eventList.addAll(list)
         notifyDataSetChanged()
@@ -42,7 +43,7 @@ class RecycleViewAdapter(private val context: Context?) :
             viewHolder.eventTime.text = timeFormatter.format(item.date)
 
             viewHolder.eventName.text = item.title
-            viewHolder.eventCity.text = item.location.nameEn + ". Ukraine"
+            viewHolder.eventCity.text = item.location?.nameEn + ". Ukraine"
             //todo localize app
 //            if(item.isSelected) {
 //                viewHolder.isSelectedIndicator.visibility = View.VISIBLE
@@ -55,15 +56,15 @@ class RecycleViewAdapter(private val context: Context?) :
 //                item.isSelected = true
 //                notifyDataSetChanged()
 //            }
-            notifyDataSetChanged()
+//            notifyDataSetChanged()
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
-    fun getItems(): ArrayList<Event> {
-        return eventList
-    }
+//    fun getItems(): ArrayList<Event> {
+//        return eventList
+//    }
 
     override fun getItemCount(): Int {
         return eventList.size

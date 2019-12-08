@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android.service
+package com.sharaga.yourcityevents_android.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.sharaga.yourcityevents_android.security.AppUser
@@ -12,7 +12,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 object RetrofitFactory {
-    //Creating Auth Interceptor to add api_key query in front of all the requests.
+
     private val authInterceptor = Interceptor { chain ->
         val newUrl = chain.request().url
             .newBuilder()
@@ -32,12 +32,10 @@ object RetrofitFactory {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-    //OkhttpClient for building http request url
     private val client = OkHttpClient().newBuilder()
         .addInterceptor(authInterceptor)
         .addInterceptor(loggingInterceptor)
         .build()
-
 
     val moshi = Moshi
         .Builder()

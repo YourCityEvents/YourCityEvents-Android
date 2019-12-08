@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android.model.entity
+package com.sharaga.yourcityevents_android.model
 
 import com.squareup.moshi.JsonClass
 
@@ -7,9 +7,4 @@ data class City(
     val id: String,
     val nameUa: String,
     val nameEn: String
-)
-
-@JsonClass(generateAdapter = true)
-data class CityResponse(
-    val cities: List<City>
 )

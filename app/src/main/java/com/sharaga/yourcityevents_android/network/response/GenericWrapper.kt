@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android.model
+package com.sharaga.yourcityevents_android.network.response
 
 import com.squareup.moshi.JsonClass
 

@@ -4,6 +4,7 @@ import com.sharaga.yourcityevents_android.utility.MainApplication
 import de.adorsys.android.securestoragelibrary.SecurePreferences
 
 object SecureStorage {
+
     fun getVal(key: String): String {
         return SecurePreferences.getStringValue(MainApplication.applicationContext(), key, "") ?: ""
     }

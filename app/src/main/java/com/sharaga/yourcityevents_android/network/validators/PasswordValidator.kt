@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android.service.validators
+package com.sharaga.yourcityevents_android.network.validators
 
 import java.util.regex.Pattern
 

@@ -6,7 +6,6 @@ data class UserCreds(
     val token: String
 )
 
-
 object AppUser {
 
     val current: UserCreds = getCurrentUserCreds()

@@ -1,5 +1,7 @@
-package com.sharaga.yourcityevents_android.model.entity
+package com.sharaga.yourcityevents_android.model
 
+import com.sharaga.yourcityevents_android.model.City
+import com.sharaga.yourcityevents_android.model.Event
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
