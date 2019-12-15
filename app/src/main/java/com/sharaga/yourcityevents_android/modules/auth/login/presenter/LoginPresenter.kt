@@ -2,11 +2,10 @@ package com.sharaga.yourcityevents_android.modules.auth.login.presenter
 import com.sharaga.yourcityevents_android.extensions.showError
 import com.sharaga.yourcityevents_android.modules.auth.login.view.LoginFragment
 import com.sharaga.yourcityevents_android.network.ApiFactory
-import com.sharaga.yourcityevents_android.validators.EmailValidator
-import com.sharaga.yourcityevents_android.validators.PasswordValidator
 import com.sharaga.yourcityevents_android.repository.UserRepository
 import com.sharaga.yourcityevents_android.security.AppUser
-import io.realm.Realm
+import com.sharaga.yourcityevents_android.validators.EmailValidator
+import com.sharaga.yourcityevents_android.validators.PasswordValidator
 import java.lang.ref.WeakReference
 
 interface ILoginPresenter {
@@ -19,7 +18,7 @@ class LoginPresenter(private var view: WeakReference<LoginFragment>) : ILoginPre
     private val emailValidator = EmailValidator()
     private val passwordValidator = PasswordValidator()
     private val identityApi = ApiFactory.identityApi
-    private val userRepository = UserRepository(Realm.getDefaultInstance())
+    private val userRepository = UserRepository()
     private val networking = ApiFactory.identityApi
 
     override fun login(email: String, password: String) {

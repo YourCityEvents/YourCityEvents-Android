@@ -5,7 +5,7 @@ import io.realm.RealmObject
 import io.realm.RealmResults
 import io.realm.Sort
 
-abstract class BaseRepository<T : RealmObject>(val realm: Realm, private val ofType: Class<T>) {
+abstract class BaseRepository<T : RealmObject>(private val ofType: Class<T>, private val realm: Realm = Realm.getDefaultInstance()) {
 //todo set default realm instance
     fun getById(id: String): T? {
         return realm.where(ofType).equalTo("id", id).findFirst()

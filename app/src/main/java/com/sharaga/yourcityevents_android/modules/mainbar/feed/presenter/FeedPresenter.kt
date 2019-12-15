@@ -6,13 +6,11 @@ import com.sharaga.yourcityevents_android.repository.EventRepository
 import com.sharaga.yourcityevents_android.repository.realmdto.RealmEvent
 import com.sharaga.yourcityevents_android.validators.EmailValidator
 import com.sharaga.yourcityevents_android.validators.PasswordValidator
-import io.realm.Realm
 import io.realm.RealmResults
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.ref.WeakReference
-
 
 class FeedPresenter(private var view: WeakReference<FeedFragment>) {
 
@@ -21,7 +19,7 @@ class FeedPresenter(private var view: WeakReference<FeedFragment>) {
     private val emailValidator = EmailValidator()
     private val passwordValidator = PasswordValidator()
     private val identityApi = ApiFactory.identityApi
-    private val eventRep = EventRepository(Realm.getDefaultInstance())
+    private val eventRep = EventRepository()
     private val eventService = ApiFactory.evenrApi
 
     fun displayEvents() {
@@ -45,7 +43,6 @@ class FeedPresenter(private var view: WeakReference<FeedFragment>) {
                 val response = request.await()
                 if (response.isSuccessful) {
                     val events = response.body()?.data?.events
-
 
                     eventRep.saveAll(events!!.map { RealmEvent(it) })
                     updateEventsCallback(eventRep.getAll())

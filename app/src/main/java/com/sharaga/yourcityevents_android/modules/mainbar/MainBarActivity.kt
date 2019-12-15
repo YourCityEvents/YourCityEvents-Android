@@ -17,22 +17,22 @@ class MainBarActivity: AppCompatActivity() {
         setContentView(R.layout.activity_main_bar)
 //        val navView: BottomNavigationView = findViewById(R.id.navigationView)
 
-        loadFragment(FeedFragment())
         navigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        loadFragment(FeedFragment(), R.id.mainContainer)
     }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.tab_feed -> {
-                loadFragment(FeedFragment())
+                loadFragment(FeedFragment(), R.id.mainContainer)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.tab_create -> {
-                loadFragment(CreateFragment())
+                loadFragment(CreateFragment(), R.id.mainContainer)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.tab_profile -> {
-                loadFragment(ProfileFragment())
+                loadFragment(ProfileFragment(), R.id.mainContainer)
                 return@OnNavigationItemSelectedListener true
             }
         }
