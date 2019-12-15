@@ -1,6 +1,6 @@
 package com.sharaga.yourcityevents_android.validators
 
+interface IValidator {
 
-public interface IValidator {
-    fun validate(text: String?): Boolean
+    fun validate(text: CharSequence?): Boolean
 }

@@ -10,7 +10,13 @@ data class UserCreds(
     val login: String,
     val password: String,
     val token: String
-)
+) {
+    constructor(login: String, password: String) : this(
+        login,
+        password,
+        ""
+    )
+}
 
 object AppUser {
 

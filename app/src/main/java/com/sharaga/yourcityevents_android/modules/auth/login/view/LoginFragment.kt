@@ -1,6 +1,5 @@
 package com.sharaga.yourcityevents_android.modules.auth.login.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sharaga.yourcityevents_android.R
 import com.sharaga.yourcityevents_android.modules.auth.login.presenter.LoginPresenter
-import com.sharaga.yourcityevents_android.modules.mainbar.MainBarActivity
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_login.view.*
 import java.lang.ref.WeakReference
 
 class LoginFragment : Fragment() {
@@ -21,7 +20,7 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        this.presenter = LoginPresenter(WeakReference(this))
+        this.presenter = LoginPresenter(WeakReference(activity as LoginActivity))
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
@@ -31,9 +30,7 @@ class LoginFragment : Fragment() {
         }
 
         sign_in.setOnClickListener {
-            val intent = Intent(activity, MainBarActivity::class.java)
-            startActivity(intent)
-            presenter.login("", "")
+            presenter.signIn(view.email.text.toString(), view.password.text.toString())
         }
     }
 }
