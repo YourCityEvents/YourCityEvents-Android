@@ -7,7 +7,6 @@ import com.sharaga.yourcityevents_android.R
 import com.sharaga.yourcityevents_android.modules.welcome.presenter.WelcomePresenter
 import java.lang.ref.WeakReference
 
-
 class WelcomeActivity : AppCompatActivity() {
 
     private lateinit var presenter: WelcomePresenter
@@ -16,7 +15,6 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 
-//        this.presenter = WelcomePresenter(WeakReference(view))
         this.presenter = WelcomePresenter(WeakReference(this) )
         Handler().postDelayed({
             this.presenter.authUser()

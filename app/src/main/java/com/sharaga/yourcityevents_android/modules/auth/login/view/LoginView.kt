@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.sharaga.yourcityevents_android.R
+import com.sharaga.yourcityevents_android.extensions.loadFragment
 import com.sharaga.yourcityevents_android.modules.auth.login.presenter.LoginPresenter
 import com.sharaga.yourcityevents_android.modules.mainbar.MainBarActivity
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -22,16 +23,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_empty)
         loadFragment(LoginFragment())
     }
-
-    private fun loadFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.loginContainer, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
-
-
 }
 
 
@@ -47,13 +38,11 @@ class LoginFragment : Fragment() {
         this.presenter = LoginPresenter(WeakReference(this))
         //var view; //inflater.inflate(R.layout.fragment_login, container, false)
 
-
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
 
         sign_up.setOnClickListener{
             presenter.cumshot()

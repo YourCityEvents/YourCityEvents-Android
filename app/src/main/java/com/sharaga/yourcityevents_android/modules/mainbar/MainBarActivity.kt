@@ -2,9 +2,9 @@ package com.sharaga.yourcityevents_android.modules.mainbar
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sharaga.yourcityevents_android.R
+import com.sharaga.yourcityevents_android.extensions.loadFragment
 import com.sharaga.yourcityevents_android.modules.mainbar.create.CreateFragment
 import com.sharaga.yourcityevents_android.modules.mainbar.feed.view.FeedFragment
 import com.sharaga.yourcityevents_android.modules.mainbar.profile.ProfileFragment
@@ -37,12 +37,5 @@ class MainBarActivity: AppCompatActivity() {
             }
         }
         false
-    }
-
-    private fun loadFragment(fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.mainContainer, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
     }
 }

@@ -38,56 +38,6 @@ class FeedFragment : Fragment() {
             updateNewEvents(it)
         }
         presenter.displayEvents()
-//        loadAllEvents(listOf(
-//            Event(
-//                "", "title 1",
-//                City("", "Kyiv", "Kyiv"), "desc",
-//                User(
-//                    "id", "name", "last", "bio", "email",
-//                    City("", "Kyiv", "Kyiv"), emptyList(), emptyList(), null, "token"
-//                ),
-//                Date(), emptyList(), emptyList(), emptyList(), 1488L
-//            ),
-//            Event(
-//                "", "title 2",
-//                City("", "Kyiv", "Kyiv"), "desc",
-//                User(
-//                    "id", "name", "last", "bio", "email",
-//                    City("", "Kyiv", "Kyiv"), emptyList(), emptyList(), null, "token"
-//                ),
-//                Date(), emptyList(), emptyList(), emptyList(), 1488L
-//            ),
-//            Event(
-//                "", "title 3",
-//                City("", "Kyiv", "Kyiv"), "desc",
-//                User(
-//                    "id", "name", "last", "bio", "email",
-//                    City("", "Kyiv", "Kyiv"), emptyList(), emptyList(), null, "token"
-//                ),
-//                Date(), emptyList(), emptyList(), emptyList(), 1488L
-//            ),
-//            Event(
-//                "", "title 4",
-//                City("", "Kyiv", "Kyiv"), "desc",
-//                User(
-//                    "id", "name", "last", "bio", "email",
-//                    City("", "Kyiv", "Kyiv"), emptyList(), emptyList(), null, "token"
-//                ),
-//                Date(), emptyList(), emptyList(), emptyList(), 1488L
-//            ),
-//            Event(
-//                "", "title 5",
-//                City("", "Kyiv", "Kyiv"), "desc",
-//                User(
-//                    "id", "name", "last", "bio", "email",
-//                    City("", "Kyiv", "Kyiv"), emptyList(), emptyList(), null, "token"
-//                ),
-//                Date(), emptyList(), emptyList(), emptyList(), 1488L
-//            )
-//        ))
-
-
-
     }
 
     private fun updateNewEvents(events: RealmResults<RealmEvent>) {
