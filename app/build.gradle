@@ -34,7 +34,6 @@ dependencies {
     def dagger2_version = "2.14.1"
     def room_version = "2.2.1"
     def nav_version = "2.1.0"
-    def huix_version = "1.4.8.8"
     def recyclerview_version = "1.1.0"
     def recyclerview_selection_version = "1.0.0"
 

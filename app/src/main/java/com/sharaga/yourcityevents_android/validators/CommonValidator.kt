@@ -1,4 +1,4 @@
-package com.sharaga.yourcityevents_android.network.validators
+package com.sharaga.yourcityevents_android.validators
 
 class CommonValidator: IValidator {
 

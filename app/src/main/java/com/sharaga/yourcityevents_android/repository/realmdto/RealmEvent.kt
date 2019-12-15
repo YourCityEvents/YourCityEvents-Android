@@ -4,7 +4,6 @@ import com.sharaga.yourcityevents_android.model.Event
 import io.realm.RealmList
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
-import java.util.*
 
 open class RealmEvent(
     @PrimaryKey
@@ -13,7 +12,7 @@ open class RealmEvent(
     var location: RealmCity? = null,
     var description: String? = null,
     var owner: RealmUser? = null,
-    var date: Date? = null,
+    var date: String? = null,
     var imageUrls: RealmList<String>? = null,
     var links: RealmList<String>? = null,
     var visitors: RealmList<RealmUser>? = null,

@@ -2,8 +2,8 @@ package com.sharaga.yourcityevents_android.modules.auth.login.presenter
 import com.sharaga.yourcityevents_android.extensions.showError
 import com.sharaga.yourcityevents_android.modules.auth.login.view.LoginFragment
 import com.sharaga.yourcityevents_android.network.ApiFactory
-import com.sharaga.yourcityevents_android.network.validators.EmailValidator
-import com.sharaga.yourcityevents_android.network.validators.PasswordValidator
+import com.sharaga.yourcityevents_android.validators.EmailValidator
+import com.sharaga.yourcityevents_android.validators.PasswordValidator
 import com.sharaga.yourcityevents_android.repository.UserRepository
 import com.sharaga.yourcityevents_android.security.AppUser
 import io.realm.Realm

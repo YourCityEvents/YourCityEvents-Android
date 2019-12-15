@@ -21,7 +21,7 @@ object RetrofitFactory {
 
         val newRequest = chain.request()
             .newBuilder()
-            .addHeader("Authorization", "Bearer " + AppUser.current.token)
+            .addHeader("Authorization", "Bearer " + AppUser.getCurrentUserCreds().token)
             .url(newUrl)
             .build()
 

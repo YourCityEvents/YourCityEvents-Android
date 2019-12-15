@@ -1,6 +1,12 @@
 package com.sharaga.yourcityevents_android.security
 
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+
+
+@JsonClass(generateAdapter = true)
 data class UserCreds(
+    @Json(name = "email")
     val login: String,
     val password: String,
     val token: String
@@ -8,9 +14,7 @@ data class UserCreds(
 
 object AppUser {
 
-    val current: UserCreds = getCurrentUserCreds()
-
-    private fun getCurrentUserCreds(): UserCreds {
+    fun getCurrentUserCreds(): UserCreds {
         return UserCreds(
             SecretStorage.getVal("login"),
             SecretStorage.getVal("password"),
