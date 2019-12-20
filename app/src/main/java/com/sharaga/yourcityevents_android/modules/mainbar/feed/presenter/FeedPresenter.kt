@@ -4,8 +4,6 @@ import com.sharaga.yourcityevents_android.modules.mainbar.feed.view.FeedFragment
 import com.sharaga.yourcityevents_android.network.ApiFactory
 import com.sharaga.yourcityevents_android.repository.EventRepository
 import com.sharaga.yourcityevents_android.repository.realmdto.RealmEvent
-import com.sharaga.yourcityevents_android.validators.EmailValidator
-import com.sharaga.yourcityevents_android.validators.PasswordValidator
 import io.realm.RealmResults
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -16,9 +14,6 @@ class FeedPresenter(private var view: WeakReference<FeedFragment>) {
 
     lateinit var updateEventsCallback: (RealmResults<RealmEvent>) -> (Unit)
 
-    private val emailValidator = EmailValidator()
-    private val passwordValidator = PasswordValidator()
-    private val identityApi = ApiFactory.identityApi
     private val eventRep = EventRepository()
     private val eventService = ApiFactory.evenrApi
 
@@ -47,7 +42,6 @@ class FeedPresenter(private var view: WeakReference<FeedFragment>) {
                     eventRep.saveAll(events!!.map { RealmEvent(it) })
                     updateEventsCallback(eventRep.getAll())
                 } else {
-                    println("chisto byl proeb")
                     //todo add popup exception
                 }
             } catch (e: Exception) {

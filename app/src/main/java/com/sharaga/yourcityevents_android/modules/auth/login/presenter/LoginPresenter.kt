@@ -2,7 +2,7 @@ package com.sharaga.yourcityevents_android.modules.auth.login.presenter
 
 import com.sharaga.yourcityevents_android.extensions.showError
 import com.sharaga.yourcityevents_android.extensions.switchToActivity
-import com.sharaga.yourcityevents_android.modules.auth.login.view.LoginActivity
+import com.sharaga.yourcityevents_android.modules.auth.AuthActivity
 import com.sharaga.yourcityevents_android.modules.mainbar.MainBarActivity
 import com.sharaga.yourcityevents_android.network.ApiFactory
 import com.sharaga.yourcityevents_android.security.AppUser
@@ -14,7 +14,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.ref.WeakReference
 
-class LoginPresenter(private var loginActivity: WeakReference<LoginActivity?>) {
+class LoginPresenter(private var authActivity: WeakReference<AuthActivity?>) {
 
     private val emailValidator = EmailValidator()
     private val passwordValidator = PasswordValidator()
@@ -22,18 +22,10 @@ class LoginPresenter(private var loginActivity: WeakReference<LoginActivity?>) {
 
     fun signIn(email: String, password: String) {
         if (emailValidator.validate(email) && passwordValidator.validate(password)) {
-            //identityApi.login(AppUser.current)
             makeLoginRequest(UserCreds(email, password))
-//            model.setCurrentUserCreds(email)
-            //  networking.loginogin()
         } else {
-            loginActivity.get()?.showError("invalid email or password")
+            authActivity.get()?.showError("invalid email or password")
         }
-    }
-
-    fun cumshot() {
-        //userRepository.save(RealmUser("228", "ldsf", "ldsjf", "lsdfj", "dlskfj", "ldsfk", RealmList(), RealmList(), "ldsf", "ldsf"))
-//        view.get()?.showError(userRepository.getById("228").toString())
     }
 
     private fun makeLoginRequest(user: UserCreds) {
@@ -50,12 +42,12 @@ class LoginPresenter(private var loginActivity: WeakReference<LoginActivity?>) {
                             user.password,
                             response.body()?.data!!.token
                         )
-                        loginActivity.get()?.switchToActivity(MainBarActivity::class.java)
+                        authActivity.get()?.switchToActivity(MainBarActivity::class.java)
                     } else {
-                        loginActivity.get()?.showError(response.body()!!.errors)
+                        authActivity.get()?.showError(response.body()!!.errors)
                     }
                 } else {
-                    loginActivity.get()?.showError("smert' backend or no connection")
+                    authActivity.get()?.showError("smert' backend or no connection")
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

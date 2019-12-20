@@ -7,4 +7,8 @@ object AppConstants {
     const val EVENT_URL = "Event/all"
     const val IDENTITY_URL = "Identity/"
     const val USER_URL = "User/"
+
+    const val FIRST_NAME_KEY = "firstName"
+    const val LAST_NAME_KEY = "lastName"
+    const val CITY_INDEX = "cityIndex"
 }

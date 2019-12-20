@@ -44,5 +44,4 @@
         android:layout_weight="1"
         tools:listitem="@layout/item_event" />
 
-
 </LinearLayout>

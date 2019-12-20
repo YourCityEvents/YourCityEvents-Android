@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorTeal</item>
@@ -12,15 +12,15 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="NavigationView" parent="Base.Theme.AppCompat">
+    <style name="NavigationView" parent="Theme.MaterialComponents">
         <item name="android:listDivider">@color/colorPrimary</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="Theme.MaterialComponents.Light.DarkActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="Theme.MaterialComponents.Light" />
 
-    <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">
+    <style name="TextAppearance.App.TextInputLayout" parent="Theme.MaterialComponents">
     <item name="android:textColor">@color/colorPrimary</item>
     <item name="android:textSize">14sp</item>
     </style>

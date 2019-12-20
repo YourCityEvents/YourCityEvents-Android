@@ -1,7 +1,7 @@
 package com.sharaga.yourcityevents_android.modules.welcome.presenter
 
 import com.sharaga.yourcityevents_android.extensions.switchToActivity
-import com.sharaga.yourcityevents_android.modules.auth.login.view.LoginActivity
+import com.sharaga.yourcityevents_android.modules.auth.AuthActivity
 import com.sharaga.yourcityevents_android.modules.mainbar.MainBarActivity
 import com.sharaga.yourcityevents_android.modules.welcome.view.WelcomeActivity
 import com.sharaga.yourcityevents_android.network.ApiFactory
@@ -26,7 +26,7 @@ class WelcomePresenter(private val welcomeActivity: WeakReference<WelcomeActivit
         if (emailValidator.validate(user.login) && passwordValidator.validate(user.password)) {
             makeLoginRequest(user)
         } else {
-            welcomeActivity.get()?.switchToActivity(LoginActivity::class.java)
+            welcomeActivity.get()?.switchToActivity(AuthActivity::class.java)
         }
     }
 
@@ -46,10 +46,10 @@ class WelcomePresenter(private val welcomeActivity: WeakReference<WelcomeActivit
                         )
                         welcomeActivity.get()?.switchToActivity(MainBarActivity::class.java)
                     } else {
-                        welcomeActivity.get()?.switchToActivity(LoginActivity::class.java)
+                        welcomeActivity.get()?.switchToActivity(AuthActivity::class.java)
                     }
                 } else {
-                    welcomeActivity.get()?.switchToActivity(LoginActivity::class.java)
+                    welcomeActivity.get()?.switchToActivity(AuthActivity::class.java)
                 }
             } catch (e: Exception) {
                 e.printStackTrace()

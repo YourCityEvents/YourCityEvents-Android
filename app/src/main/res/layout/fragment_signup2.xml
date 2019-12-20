@@ -20,28 +20,75 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/app_name"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="65dp"
-                android:gravity="center"
-                android:text="@string/app_name"
-                android:textColor="@color/colorPrimary"
-                android:textSize="36sp" />
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="50dp"
+                android:gravity="end"
+                android:text="@string/sign_up"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="@dimen/sign_field_len"
+                android:layout_height="17dp"
+                android:background="@drawable/ic_signup_progress_2" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="@dimen/sign_field_len"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/login"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bio"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/your_city"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="@dimen/sign_field_len"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
+                android:hint="@string/name"
                 app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email"
+                    android:id="@+id/first_name"
                     android:layout_width="@dimen/sign_field_len"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,36 +98,25 @@
                 android:layout_width="@dimen/sign_field_len"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/second_field_top_margin"
-                android:hint="@string/password">
+                android:hint="@string/surname">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
+                    android:id="@+id/last_name"
                     android:layout_width="@dimen/sign_field_len"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPassword" />
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/link_signup"
-                android:layout_width="@dimen/sign_field_len"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="end"
-                android:text="@string/forgot_password"
-                android:textColor="@drawable/textview_clickable"
-                android:textSize="16sp" />
+
 
             <Button
                 android:id="@+id/next"
                 android:layout_width="@dimen/sign_field_len"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_background"
-                android:text="@string/sign_in"
+                android:text="@string/next"
                 android:textColor="@color/colorWhite" />
 
             <LinearLayout
@@ -96,7 +132,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="24dp"
                     android:gravity="end"
-                    android:text="@string/dont_have_acc"
+                    android:text="@string/already_have_acc"
                     android:textSize="16sp" />
 
                 <TextView
@@ -109,7 +145,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="end"
-                    android:text="@string/sign_up"
+                    android:text="@string/sign_in"
                     android:textColor="@drawable/textview_clickable"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -124,7 +160,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_waves_1"
+            android:src="@drawable/ic_waves_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

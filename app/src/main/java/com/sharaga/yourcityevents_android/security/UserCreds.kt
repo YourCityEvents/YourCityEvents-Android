@@ -39,4 +39,9 @@ object AppUser {
         SecretStorage.setVal("password", password)
         SecretStorage.setVal("token", token)
     }
+
+    fun setCurrentUserCreds(login: String, password: String) {
+        SecretStorage.setVal("login", login)
+        SecretStorage.setVal("password", password)
+    }
 }

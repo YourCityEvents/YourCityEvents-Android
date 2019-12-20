@@ -15,6 +15,7 @@ fun AppCompatActivity.loadFragment(fragment: Fragment, containerId: Int) {
     transaction.replace(containerId, fragment)
     transaction.addToBackStack(null)
     transaction.commit()
+    //todo rework to remove fragments from backstack
 }
 
 fun AppCompatActivity.showError(error: String) {
