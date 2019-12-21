@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import com.sharaga.yourcityevents_android.R
 import com.sharaga.yourcityevents_android.modules.auth.AuthActivity
 import com.sharaga.yourcityevents_android.modules.auth.signup.presenter.Signup3Presenter
-import com.sharaga.yourcityevents_android.utility.AppConstants
+import com.sharaga.yourcityevents_android.utility.KeyConstants
 import kotlinx.android.synthetic.main.fragment_signup3.*
 import kotlinx.android.synthetic.main.fragment_signup3.view.*
 import java.lang.ref.WeakReference
@@ -19,7 +19,7 @@ import java.lang.ref.WeakReference
 class Signup3Fragment : Fragment() {
 
     private lateinit var presenter: Signup3Presenter
-    private lateinit var cities: List<String>
+    private var cities: List<String> = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,25 +31,27 @@ class Signup3Fragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter: ArrayAdapter<String> = ArrayAdapter(
+        presenter.getCitiesCallback = {
+            cities = it
+            configureDropdownAdapter(view)
+        }
+        presenter.getCities()
+
+        submit.setOnClickListener {
+            arguments?.putInt(KeyConstants.CITY_INDEX, cities.indexOf(view.city_dropdown.text.toString()))
+            presenter.submitSignup(arguments!!)
+        }
+    }
+    private fun configureDropdownAdapter(view: View) {
+        val adapter = ArrayAdapter(
             context!!,
             R.layout.item_dropdown_menu_popup,
             cities
         )
-        presenter.getCitiesCallback = {
-            cities = it
-            adapter.notifyDataSetChanged()
-        }
-
-        presenter.getCities()
 
         val editTextFilledExposedDropdown: AutoCompleteTextView =
             view.findViewById(R.id.city_dropdown)
         editTextFilledExposedDropdown.setAdapter(adapter)
 
-        submit.setOnClickListener {
-            arguments?.putInt(AppConstants.CITY_INDEX, cities.indexOf(view.city_dropdown.text.toString()))
-            presenter.submitSignup(arguments!!)
-        }
     }
 }

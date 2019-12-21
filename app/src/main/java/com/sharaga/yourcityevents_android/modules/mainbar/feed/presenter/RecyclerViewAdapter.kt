@@ -36,35 +36,20 @@ class RecycleViewAdapter(private val context: Context?) :
             val item = eventList[i]
 
 
-            val dateFormatter = SimpleDateFormat("dd.MM")
-            viewHolder.eventDate.text = dateFormatter.format(item.date)
-            //todo get away to separate class
+            val inputDateFormatter = SimpleDateFormat("dd/MM/YYYY HH:mm")
+            val date = inputDateFormatter.parse(item.date!!)
+            val dayFormatter = SimpleDateFormat("dd.MM")
+            viewHolder.eventDate.text = dayFormatter.format(date!!)
+
             val timeFormatter = SimpleDateFormat("HH:mm")
-            viewHolder.eventTime.text = timeFormatter.format(item.date)
+            viewHolder.eventTime.text = timeFormatter.format(date)
 
             viewHolder.eventName.text = item.title
             viewHolder.eventCity.text = item.location?.nameEn + ". Ukraine"
-            //todo localize app
-//            if(item.isSelected) {
-//                viewHolder.isSelectedIndicator.visibility = View.VISIBLE
-//            } else {
-//                viewHolder.isSelectedIndicator.visibility = View.GONE
-//            }
-
-//            viewHolder.itemView.setOnClickListener {
-//                eventList.forEach { it.isSelected = false }
-//                item.isSelected = true
-//                notifyDataSetChanged()
-//            }
-//            notifyDataSetChanged()
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
-
-//    fun getItems(): ArrayList<Event> {
-//        return eventList
-//    }
 
     override fun getItemCount(): Int {
         return eventList.size

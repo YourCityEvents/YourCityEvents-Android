@@ -25,8 +25,10 @@ class FeedFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_feed, container, false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,10 +39,11 @@ class FeedFragment : Fragment() {
         presenter.updateEventsCallback = {
             updateNewEvents(it)
         }
+
         presenter.displayEvents()
     }
 
-    private fun updateNewEvents(events: RealmResults<RealmEvent>) {
+    fun updateNewEvents(events: RealmResults<RealmEvent>) {
         loadAllEvents(events)
     }
 

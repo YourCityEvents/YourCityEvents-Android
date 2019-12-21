@@ -1,5 +1,7 @@
 package com.sharaga.yourcityevents_android.modules.mainbar.feed.presenter
 
+import android.os.Handler
+import com.sharaga.yourcityevents_android.model.Event
 import com.sharaga.yourcityevents_android.modules.mainbar.feed.view.FeedFragment
 import com.sharaga.yourcityevents_android.network.ApiFactory
 import com.sharaga.yourcityevents_android.repository.EventRepository
@@ -13,21 +15,23 @@ import java.lang.ref.WeakReference
 class FeedPresenter(private var view: WeakReference<FeedFragment>) {
 
     lateinit var updateEventsCallback: (RealmResults<RealmEvent>) -> (Unit)
-
     private val eventRep = EventRepository()
     private val eventService = ApiFactory.evenrApi
+    private lateinit var events : List<Event>
 
     fun displayEvents() {
-
-        var events = eventRep.getAll()
-
-        updateEventsCallback(events)
-
+        showEventsFromRep()
         eventRep.deleteAll()
-
         getEventsFromApi()
+        Handler().postDelayed({
+            eventRep.saveAll(events.map { RealmEvent(it) })
+            showEventsFromRep()
+        }, 2500)
 
-//        AppUser.setCurrentUserCreds("yarykloh2@example.com", "string", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ5YXJ5a2xvaDJAZXhhbXBsZS5jb20iLCJqdGkiOiI0MDExNThiYS1hMDQwLTRjMzctYmYyMS01OWIyMTcxZmUxZGMiLCJlbWFpbCI6InlhcnlrbG9oMkBleGFtcGxlLmNvbSIsIm5iZiI6MTU3NjM1MTg1NCwiZXhwIjoxNTc2MzU5MDU0LCJpYXQiOjE1NzYzNTE4NTR9.OP6CbJyFqhkSc_nfAiYRDDGoi2UuBgUDyZMiLkpfjEg")
+    }
+
+    private fun showEventsFromRep() {
+        updateEventsCallback(eventRep.getAll())
     }
 
     private fun getEventsFromApi() {
@@ -37,10 +41,7 @@ class FeedPresenter(private var view: WeakReference<FeedFragment>) {
             try {
                 val response = request.await()
                 if (response.isSuccessful) {
-                    val events = response.body()?.data?.events
-
-                    eventRep.saveAll(events!!.map { RealmEvent(it) })
-                    updateEventsCallback(eventRep.getAll())
+                    events = response.body()?.data?.events!!
                 } else {
                     //todo add popup exception
                 }

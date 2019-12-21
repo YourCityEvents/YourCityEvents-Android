@@ -6,7 +6,7 @@ import com.sharaga.yourcityevents_android.extensions.loadFragment
 import com.sharaga.yourcityevents_android.extensions.showError
 import com.sharaga.yourcityevents_android.modules.auth.AuthActivity
 import com.sharaga.yourcityevents_android.modules.auth.signup.view.Signup3Fragment
-import com.sharaga.yourcityevents_android.utility.AppConstants
+import com.sharaga.yourcityevents_android.utility.KeyConstants
 import java.lang.ref.WeakReference
 
 class Signup2Presenter(private var authActivity: WeakReference<AuthActivity?>) {
@@ -14,8 +14,8 @@ class Signup2Presenter(private var authActivity: WeakReference<AuthActivity?>) {
     fun nextSignupStep(firstName: String, lastName: String) {
         if (firstName.isNotBlank() && lastName.isNotBlank()) {
             val bundle = Bundle()
-            bundle.putString(AppConstants.FIRST_NAME_KEY, firstName)
-            bundle.putString(AppConstants.LAST_NAME_KEY, lastName)
+            bundle.putString(KeyConstants.FIRST_NAME, firstName)
+            bundle.putString(KeyConstants.LAST_NAME, lastName)
 
             val signup3Fragment = Signup3Fragment()
             signup3Fragment.arguments = bundle

@@ -9,15 +9,15 @@
     tools:context=".modules.mainbar.MainBarActivity">
 
     <LinearLayout
-        android:id="@+id/mainContainer"
+        android:id="@+id/main_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/event_feed_bottom_margin"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
-
     </LinearLayout>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigationView"

@@ -9,7 +9,7 @@ import com.sharaga.yourcityevents_android.modules.auth.AuthActivity
 import com.sharaga.yourcityevents_android.modules.mainbar.MainBarActivity
 import com.sharaga.yourcityevents_android.network.ApiFactory
 import com.sharaga.yourcityevents_android.security.AppUser
-import com.sharaga.yourcityevents_android.utility.AppConstants
+import com.sharaga.yourcityevents_android.utility.KeyConstants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -43,10 +43,10 @@ class Signup3Presenter(private var authActivity: WeakReference<AuthActivity?>) {
 
     fun submitSignup(arguments: Bundle) {
         val creds = AppUser.getCurrentUserCreds()
-        val city = cities[arguments.getInt(AppConstants.CITY_INDEX)]
+        val city = cities[arguments.getInt(KeyConstants.CITY_INDEX)]
         val user = User(
-            arguments.getString(AppConstants.FIRST_NAME_KEY)!!,
-            arguments.getString(AppConstants.LAST_NAME_KEY)!!,
+            arguments.getString(KeyConstants.FIRST_NAME)!!,
+            arguments.getString(KeyConstants.LAST_NAME)!!,
             creds,
             city
         )
@@ -55,7 +55,7 @@ class Signup3Presenter(private var authActivity: WeakReference<AuthActivity?>) {
 
     private fun makeRegisterRequest(user: User) {
         GlobalScope.launch(Dispatchers.Main) {
-            val registerRequest = identityService.register(user)
+            val registerRequest = identityService.registerAsync(user)
 
             try {
                 val response = registerRequest.await()

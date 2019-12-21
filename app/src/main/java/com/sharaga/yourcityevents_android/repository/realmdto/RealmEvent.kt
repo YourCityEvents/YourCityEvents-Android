@@ -13,8 +13,6 @@ open class RealmEvent(
     var description: String? = null,
     var owner: RealmUser? = null,
     var date: String? = null,
-    var imageUrls: RealmList<String>? = null,
-    var links: RealmList<String>? = null,
     var visitors: RealmList<RealmUser>? = null,
     var price: Long? = null
 ) : RealmObject() {
@@ -26,8 +24,6 @@ open class RealmEvent(
         event.description,
         RealmUser(event.owner),
         event.date,
-        event.imageUrls.toCollection(RealmList<String>()),
-        event.links.toCollection(RealmList<String>()),
         event.visitors.map { RealmUser(it) }.toCollection(RealmList<RealmUser>()),
         event.price
     )

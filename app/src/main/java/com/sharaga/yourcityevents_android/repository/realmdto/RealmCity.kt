@@ -11,9 +11,9 @@ open class RealmCity(
     var nameEn: String? = null
 ) : RealmObject() {
 
-    constructor(city: City) : this(
-        city.id,
-        city.nameUa,
-        city.nameEn
+    constructor(city: City?) : this(
+        city?.id,
+        city?.nameUa,
+        city?.nameEn
     )
 }

@@ -1,11 +1,12 @@
 package com.sharaga.yourcityevents_android.repository
 
+import com.sharaga.yourcityevents_android.utility.UrlConstants
 import io.realm.Realm
 import io.realm.RealmObject
 import io.realm.RealmResults
 import io.realm.Sort
 
-abstract class BaseRepository<T : RealmObject>(private val ofType: Class<T>, private val realm: Realm = Realm.getDefaultInstance()) {
+abstract class BaseRepository<T : RealmObject>(private val ofType: Class<T>, private val realm: Realm = UrlConstants.realm) {
 
     fun getById(id: String): T? {
         return realm.where(ofType).equalTo("id", id).findFirst()

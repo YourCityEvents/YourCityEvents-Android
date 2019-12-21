@@ -1,7 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="sign_field_len">330dp</dimen>
-    <dimen name="first_field_top_margin">-47dp</dimen>
+    <dimen name="first_field_top_margin">-100dp</dimen>
     <dimen name="second_field_top_margin">30dp</dimen>
     <dimen name="event_feed_bottom_margin">48dp</dimen>
 </resources>

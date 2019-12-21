@@ -2,7 +2,7 @@ package com.sharaga.yourcityevents_android.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.sharaga.yourcityevents_android.security.AppUser
-import com.sharaga.yourcityevents_android.utility.AppConstants
+import com.sharaga.yourcityevents_android.utility.UrlConstants
 import com.sharaga.yourcityevents_android.utility.NullToEmptyListJsonAdapter
 import com.squareup.moshi.Moshi
 import okhttp3.Interceptor
@@ -44,7 +44,7 @@ object RetrofitFactory {
 
     fun retrofit(): Retrofit = Retrofit.Builder()
         .client(client)
-        .baseUrl(AppConstants.EVENTS_BASE_URL)
+        .baseUrl(UrlConstants.EVENTS_BASE_URL)
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()

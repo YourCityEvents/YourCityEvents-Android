@@ -8,10 +8,8 @@ data class Event(
     val title: String,
     val location: City,
     val description: String,
-    val owner: User,
+    val owner: User?,
     val date: String,
-    val imageUrls: List<String>,
-    val links: List<String>,
     val visitors: List<User>,
     val price: Long
 )

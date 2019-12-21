@@ -19,20 +19,20 @@ open class RealmUser(
     var token: String? = null
 ) : RealmObject() {
 
-    constructor(user: User) : this(
-        user.id,
-        user.firstName,
-        user.lastName,
-        user.bio,
-        user.email,
-        RealmCity(user.city),
-        user.hostingEvents.map {
+    constructor(user: User?) : this(
+        user?.id,
+        user?.firstName,
+        user?.lastName,
+        user?.bio,
+        user?.email,
+        RealmCity(user?.city),
+        user?.hostingEvents?.map {
             RealmEvent(it)
-        }.toCollection(RealmList<RealmEvent>()),
-        user.visitingEvents.map {
+        }?.toCollection(RealmList<RealmEvent>()),
+        user?.visitingEvents?.map {
             RealmEvent(it)
-        }.toCollection(RealmList<RealmEvent>()),
-        user.imageUrl,
-        user.token
+        }?.toCollection(RealmList<RealmEvent>()),
+        user?.imageUrl,
+        user?.token
     )
 }
